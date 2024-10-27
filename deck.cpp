@@ -1,28 +1,44 @@
 #include "deck.h"
 
+#include <algorithm>
+#include <iostream>
+#include <random>
+
 Deck::Deck() {
-    static const Card::Rank ranks[] = {Card::Rank::Two,
-                                       Card::Rank::Three,
-                                       Card::Rank::Four,
-                                       Card::Rank::Five,
-                                       Card::Rank::Six,
-                                       Card::Rank::Seven,
-                                       Card::Rank::Eight,
-                                       Card::Rank::Nine,
-                                       Card::Rank::Ten,
-                                       Card::Rank::Jack,
-                                       Card::Rank::Queen,
-                                       Card::Rank::King,
-                                       Card::Rank::Ace};
-
-    static const Card::Suit suits[] = {Card::Suit::Hearts,
-                                       Card::Suit::Diamonds,
-                                       Card::Suit::Clubs,
-                                       Card::Suit::Spades};
-
-    for (auto rank : ranks) {
-        for (auto suit : suits) {
-            cards.emplace_back(rank, suit);
+    for (int r = static_cast<int>(Card::Rank::Two); r <= static_cast<int>(Card::Rank::Ace); ++r) {
+        for (int s = static_cast<int>(Card::Suit::Hearts);
+             s <= static_cast<int>(Card::Suit::Spades);
+             ++s) {
+            cards.emplace_back(static_cast<Card::Rank>(r), static_cast<Card::Suit>(s));
         }
     }
+    shuffle();
+}
+
+void Deck::shuffle()
+{
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    std::shuffle(cards.begin(), cards.end(), g);
+    i = 0;
+    // https://en.cppreference.com/w/cpp/algorithm/random_shuffle
+}
+
+Card Deck::draw() noexcept
+{
+    return cards[i++];
+}
+
+void Deck::printCards() const noexcept
+{
+    for (int r = 0; r < cards.size(); ++r) {
+        std::cout << cards[r] << " ";
+    }
+    std::cout << std::endl;
+}
+
+bool Deck::isEmpty() const noexcept
+{
+    return i >= cards.size();
 }

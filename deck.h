@@ -3,21 +3,19 @@
 
 #include <QVector>
 #include <card.h>
-#include <iostream>
 
 class Deck
 {
 public:
     Deck();
     void shuffle();
-    Card draw();
-    void printCards() {
-        for(int r = 0; r < cards.size(); ++r) {
-            std::cout << cards[r] << " ";
-        }
-    }
+    Card draw() noexcept;
+    void printCards() noexcept;
+    bool isEmpty() const noexcept;
+
 private:
     QVector<Card> cards;
+    size_t i = 0;
 };
 
 #endif // DECK_H

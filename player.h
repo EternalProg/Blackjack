@@ -13,10 +13,12 @@ public:
     void addCard(const Card& card);
     void clearHand();
 
-    // розраховує та повертає загальну суму очок на руках (враховуючи правила підрахунку тузів).
-    int getScore() const;
+    size_t getScore() const;
+
 protected:
     QVector<Card> hand;
+    size_t scoreWithoutAces = 0;
+    size_t countOfAces = 0;
 };
 
 #endif // PLAYER_H
