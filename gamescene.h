@@ -21,8 +21,7 @@ public:
     void clearScene();
     void updateView();
 
-    void showFrontCard(const Card &card);
-    void showBackCard(const Card &card);
+    void showFrontFirstCard();
 
 private:
     std::unique_ptr<QGraphicsView> view;

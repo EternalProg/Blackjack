@@ -26,7 +26,7 @@ void CardView::showFront()
 
 void CardView::showBack()
 {
-    setPixmap(backPixmap);
+    setPixmap(backPixmap.scaled(500, 730));
 }
 
 void CardView::animateTo(const QPointF &startPos, const QPointF &endPos)

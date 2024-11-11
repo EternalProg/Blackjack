@@ -75,7 +75,7 @@ void Game::dealerRound()
             dealer->addCard(dealerCard);
         }
 
-        scenes[dealer.get()]->showFrontCard(dealer->getHiddenCard());
+        scenes[dealer.get()]->showFrontFirstCard();
 
         emit resultReady();
         human->resetBet();

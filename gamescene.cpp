@@ -31,7 +31,7 @@ void GameScene::addHiddenCardToPlayer(const Card &card)
     auto cardView = std::make_unique<CardView>(card);
     QPointF position = playerInfo->pos + QPointF(cardOffsetX * playerInfo->cardViews.size(), 0);
     cardView->setPos(position);
-    cardView->showFront();
+    cardView->showBack();
     addItem(cardView.get());
     playerInfo->cardViews.push_back(std::move(cardView));
     updateView();
@@ -50,20 +50,7 @@ void GameScene::updateView()
     view->update();
 }
 
-void GameScene::showFrontCard(const Card &card)
+void GameScene::showFrontFirstCard()
 {
-    for (const auto &cardView : playerInfo->cardViews) {
-        if (&cardView->getCard() == &card) {
-            cardView->showFront();
-        }
-    }
-}
-
-void GameScene::showBackCard(const Card &card)
-{
-    for (const auto &cardView : playerInfo->cardViews) {
-        if (&cardView->getCard() == &card) {
-            cardView->showBack();
-        }
-    }
+    playerInfo->cardViews[0]->showFront();
 }
