@@ -24,7 +24,6 @@ public:
 
     ~Deck();
 
-    // в меню буде нажиматися кнопка з доступнимми скінами і буде передаватися айді колоди сюди через слоти.
     void loadDeckSkin(uint8_t deckID) override;
 
 private:

@@ -16,24 +16,36 @@ QGraphicsView *GameScene::getView() const
     return view.get();
 }
 
-void GameScene::addCardToPlayer(const Card &card)
+void GameScene::addCardToPlayer(const Card &card, const QPointF &deckPos)
 {
     auto cardView = std::make_unique<CardView>(card);
     QPointF position = playerInfo->pos + QPointF(cardOffsetX * playerInfo->cardViews.size(), 0);
     cardView->setPos(position);
     addItem(cardView.get());
+    cardView->animateTo(deckPos, position);
     playerInfo->cardViews.push_back(std::move(cardView));
+
+    QRectF sceneRect = itemsBoundingRect();
+    setSceneRect(sceneRect);
+    view->fitInView(sceneRect, Qt::KeepAspectRatio);
+
     updateView();
 }
 
-void GameScene::addHiddenCardToPlayer(const Card &card)
+void GameScene::addHiddenCardToPlayer(const Card &card, const QPointF &deckPos)
 {
     auto cardView = std::make_unique<CardView>(card);
     QPointF position = playerInfo->pos + QPointF(cardOffsetX * playerInfo->cardViews.size(), 0);
     cardView->setPos(position);
     cardView->showBack();
     addItem(cardView.get());
+    cardView->animateTo(deckPos, position);
     playerInfo->cardViews.push_back(std::move(cardView));
+
+    QRectF sceneRect = itemsBoundingRect();
+    setSceneRect(sceneRect);
+    view->fitInView(sceneRect, Qt::KeepAspectRatio);
+
     updateView();
 }
 

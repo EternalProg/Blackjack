@@ -24,6 +24,8 @@ public:
     Dealer *getDealer() const;
     Human *getHuman() const;
 
+    void setDeckPos(const QPointF &pos);
+
 signals:
     void resultReady();
 
@@ -35,6 +37,7 @@ private:
     unique_ptr<Human> human;
 
     bool humanStands = false;
+    QPointF deckPos;
 
     std::unordered_map<Player *, unique_ptr<GameScene>> scenes;
 };

@@ -10,10 +10,12 @@ public:
     Dealer();
 
     bool shouldStand() const;
-    const Card &getHiddenCard() const;
+    size_t getHiddenCardScore();
+    void setHasHiddenCard(bool flag);
+    bool hasHiddenCard() const;
 
 private:
-    bool hasHiddenCard = false;
+    bool hasHiddenCard_ = true;
 };
 
 #endif // DEALER_H

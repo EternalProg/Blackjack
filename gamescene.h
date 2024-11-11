@@ -16,8 +16,8 @@ public:
 
     QGraphicsView *getView() const;
 
-    void addCardToPlayer(const Card &card);
-    void addHiddenCardToPlayer(const Card &card);
+    void addCardToPlayer(const Card &card, const QPointF &deckPos);
+    void addHiddenCardToPlayer(const Card &card, const QPointF &deckPos);
     void clearScene();
     void updateView();
 

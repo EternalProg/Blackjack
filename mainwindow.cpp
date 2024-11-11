@@ -4,12 +4,13 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , game(new Game(this)) // Pass `this` as the parent
+    , game(new Game(this))
     , backgroundMusic(new QMediaPlayer(this))
     , audioOutput(new QAudioOutput(this))
 
 {
     ui->setupUi(this);
+    game->setDeckPos(ui->deckLabel->pos());
 
     connect(ui->hitButton, &QPushButton::clicked, this, &MainWindow::onHitButtonClicked);
     connect(ui->standButton, &QPushButton::clicked, this, &MainWindow::onStandButtonClicked);
@@ -37,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->playerGraphicsView->setScene(game->getHumanScene());
     ui->dealerGraphicsView->setScene(game->getDealerScene());
+
     enableBetButtons(false);
 
     game->startNewGame();
@@ -99,7 +101,11 @@ void MainWindow::updateStatusBar()
                                    .arg(game->getHuman()->getBet()));
 
     ui->humanScore->setText(QString("%1").arg(game->getHuman()->getScore()));
-    ui->dealerScore->setText(QString("%1").arg(game->getDealer()->getScore()));
+    size_t dealerScore = game->getDealer()->getScore();
+    if (game->getDealer()->hasHiddenCard()) {
+        dealerScore -= game->getDealer()->getHiddenCardScore();
+    }
+    ui->dealerScore->setText(QString("%1").arg(dealerScore));
 }
 void MainWindow::displayResult()
 {

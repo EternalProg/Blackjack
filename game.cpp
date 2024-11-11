@@ -22,6 +22,7 @@ void Game::startNewGame()
     deck->shuffle();
     human->clearHand();
     dealer->clearHand();
+    dealer->setHasHiddenCard(true);
 
     humanStands = false;
 
@@ -36,12 +37,12 @@ void Game::startNewGame()
 
         human->addCard(humanCard);
         if (i == 0) {
-            scenes[dealer.get()]->addHiddenCardToPlayer(dealerCard);
+            scenes[dealer.get()]->addHiddenCardToPlayer(dealerCard, deckPos);
         } else {
-            scenes[dealer.get()]->addCardToPlayer(dealerCard);
+            scenes[dealer.get()]->addCardToPlayer(dealerCard, deckPos);
         }
 
-        scenes[human.get()]->addCardToPlayer(humanCard);
+        scenes[human.get()]->addCardToPlayer(humanCard, deckPos);
     }
 
     std::cout << "Your score: " << human->getScore() << "\n";
@@ -55,7 +56,7 @@ void Game::humanRound()
 {
     if (!humanStands) {
         Card humanCard = drawCard();
-        scenes[human.get()]->addCardToPlayer(humanCard);
+        scenes[human.get()]->addCardToPlayer(humanCard, deckPos);
         human->addCard(humanCard);
         scenes[human.get()]->updateView();
 
@@ -71,11 +72,12 @@ void Game::dealerRound()
         while (!dealer->shouldStand()) {
             QThread::sleep(1);
             Card dealerCard = drawCard();
-            scenes[dealer.get()]->addCardToPlayer(dealerCard);
+            scenes[dealer.get()]->addCardToPlayer(dealerCard, deckPos);
             dealer->addCard(dealerCard);
         }
 
         scenes[dealer.get()]->showFrontFirstCard();
+        dealer->setHasHiddenCard(false);
 
         emit resultReady();
         human->resetBet();
@@ -106,6 +108,11 @@ Dealer *Game::getDealer() const
 Human *Game::getHuman() const
 {
     return human.get();
+}
+
+void Game::setDeckPos(const QPointF &pos)
+{
+    deckPos = pos;
 }
 
 Card Game::drawCard()

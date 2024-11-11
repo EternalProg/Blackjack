@@ -18,9 +18,9 @@ public:
     const Card &getCard() const;
 
 private:
-    const Card &card;    // Зберігаємо посилання на модель карти
-    QPixmap frontPixmap; // Текстура для передньої сторони
-    QPixmap backPixmap;  // Текстура для задньої сторони
+    const Card &card;
+    QPixmap frontPixmap;
+    QPixmap backPixmap;
     QGraphicsItemAnimation *animation;
     QTimeLine *timeLine;
 };

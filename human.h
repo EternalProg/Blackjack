@@ -15,10 +15,8 @@ public:
 
     int getBet() const;
 
-    // Скидання ставки (на новий раунд)
     void resetBet();
 
-    // Додавання або віднімання грошей в залежності від результату гри
     void updateBalance(int amount);
 private:
     int balance;

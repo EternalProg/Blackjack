@@ -8,7 +8,7 @@ void Player::addCard(const Card &card)
     hand.push_back(card);
     size_t cardScore = getCardScore(card);
 
-    if (cardScore == 0) { // Туз
+    if (cardScore == 0) {
         ++countOfAces;
     } else {
         scoreWithoutAces += cardScore;

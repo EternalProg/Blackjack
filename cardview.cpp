@@ -6,9 +6,9 @@ CardView::CardView(const Card &card, QGraphicsItem *parent)
     , frontPixmap(card.getFrontSkin())
     , backPixmap(card.getBackSkin())
     , animation(new QGraphicsItemAnimation)
-    , timeLine(new QTimeLine(1000))
+    , timeLine(new QTimeLine(3000))
 {
-    setScale(0.35);
+    setScale(0.3);
     if (card.getIsFront()) {
         setPixmap(frontPixmap);
     } else {

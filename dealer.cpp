@@ -7,7 +7,17 @@ bool Dealer::shouldStand() const
     return getScore() >= 17;
 }
 
-const Card &Dealer::getHiddenCard() const
+size_t Dealer::getHiddenCardScore()
 {
-    return hand.front();
+    return getCardScore(hand[0]);
+}
+
+void Dealer::setHasHiddenCard(bool flag)
+{
+    hasHiddenCard_ = flag;
+}
+
+bool Dealer::hasHiddenCard() const
+{
+    return hasHiddenCard_;
 }

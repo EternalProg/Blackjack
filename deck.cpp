@@ -13,7 +13,6 @@ Deck::Deck() {
         }
     }
     loadDeckSkin(getLastDeckID());
-    //shuffle();
 }
 
 void Deck::shuffle()
@@ -65,5 +64,4 @@ uint8_t DeckSkinLoader::getLastDeckID()
 {
     QSettings settings("Blackjack", "config");
     return settings.value("LastDeckID", 1).toUInt();
-    // Якщо немає збереженого значення, повертає 1
 }
