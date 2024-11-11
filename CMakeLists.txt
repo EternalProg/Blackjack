@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets Multimedia REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -31,6 +31,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         human.h human.cpp
         dealer.h dealer.cpp
         deck.h deck.cpp
+        resources.qrc
+        resources.qrc
+
+        cardview.h cardview.cpp
+        gamescene.h gamescene.cpp
+
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET BlackJack APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -50,7 +56,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(BlackJack PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(BlackJack PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Multimedia)
 
 set_target_properties(BlackJack PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

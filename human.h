@@ -3,7 +3,7 @@
 
 #include <player.h>
 
-class Human : private Player
+class Human : public Player
 {
 public:
     Human(int initialBalance);
@@ -22,7 +22,8 @@ public:
     void updateBalance(int amount);
 private:
     int balance;
-    int bet;
+    static constexpr int minBet = 10;
+    int bet = minBet;
 };
 
 #endif // HUMAN_H

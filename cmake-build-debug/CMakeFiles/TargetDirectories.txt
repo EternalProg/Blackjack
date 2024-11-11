@@ -1,0 +1,5 @@
+/home/eternal/Eternal/Programming/TraineeC++BlackJackProject/BlackJack/cmake-build-debug/CMakeFiles/BlackJack.dir
+/home/eternal/Eternal/Programming/TraineeC++BlackJackProject/BlackJack/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/eternal/Eternal/Programming/TraineeC++BlackJackProject/BlackJack/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/eternal/Eternal/Programming/TraineeC++BlackJackProject/BlackJack/cmake-build-debug/CMakeFiles/BlackJack_autogen_timestamp_deps.dir
+/home/eternal/Eternal/Programming/TraineeC++BlackJackProject/BlackJack/cmake-build-debug/CMakeFiles/BlackJack_autogen.dir
