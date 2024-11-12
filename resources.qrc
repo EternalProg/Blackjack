@@ -1,0 +1,65 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>black-jack-table-background-green-600nw-1937358541.png</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file>backgroundChillBeats.mp3</file>
+    </qresource>
+    <qresource prefix="/deckSkins">
+        <file>cardsImages/deck1/back.png</file>
+        <file>cardsImages/deck1/deck.png</file>
+        <file>cardsImages/deck1/backside.png</file>
+        <file>cardsImages/deck1/9_4.png</file>
+        <file>cardsImages/deck1/9_3.png</file>
+        <file>cardsImages/deck1/9_2.png</file>
+        <file>cardsImages/deck1/9_1.png</file>
+        <file>cardsImages/deck1/8_4.png</file>
+        <file>cardsImages/deck1/8_3.png</file>
+        <file>cardsImages/deck1/8_2.png</file>
+        <file>cardsImages/deck1/8_1.png</file>
+        <file>cardsImages/deck1/7_4.png</file>
+        <file>cardsImages/deck1/7_3.png</file>
+        <file>cardsImages/deck1/7_2.png</file>
+        <file>cardsImages/deck1/7_1.png</file>
+        <file>cardsImages/deck1/6_4.png</file>
+        <file>cardsImages/deck1/6_3.png</file>
+        <file>cardsImages/deck1/6_2.png</file>
+        <file>cardsImages/deck1/6_1.png</file>
+        <file>cardsImages/deck1/5_4.png</file>
+        <file>cardsImages/deck1/5_3.png</file>
+        <file>cardsImages/deck1/5_2.png</file>
+        <file>cardsImages/deck1/5_1.png</file>
+        <file>cardsImages/deck1/4_4.png</file>
+        <file>cardsImages/deck1/4_3.png</file>
+        <file>cardsImages/deck1/4_2.png</file>
+        <file>cardsImages/deck1/4_1.png</file>
+        <file>cardsImages/deck1/3_4.png</file>
+        <file>cardsImages/deck1/3_3.png</file>
+        <file>cardsImages/deck1/3_2.png</file>
+        <file>cardsImages/deck1/3_1.png</file>
+        <file>cardsImages/deck1/2_4.png</file>
+        <file>cardsImages/deck1/2_3.png</file>
+        <file>cardsImages/deck1/2_2.png</file>
+        <file>cardsImages/deck1/2_1.png</file>
+        <file>cardsImages/deck1/1_4.png</file>
+        <file>cardsImages/deck1/1_3.png</file>
+        <file>cardsImages/deck1/1_2.png</file>
+        <file>cardsImages/deck1/1_1.png</file>
+        <file>cardsImages/deck1/13_4.png</file>
+        <file>cardsImages/deck1/13_3.png</file>
+        <file>cardsImages/deck1/13_2.png</file>
+        <file>cardsImages/deck1/13_1.png</file>
+        <file>cardsImages/deck1/12_4.png</file>
+        <file>cardsImages/deck1/12_3.png</file>
+        <file>cardsImages/deck1/12_2.png</file>
+        <file>cardsImages/deck1/12_1.png</file>
+        <file>cardsImages/deck1/11_4.png</file>
+        <file>cardsImages/deck1/11_3.png</file>
+        <file>cardsImages/deck1/11_2.png</file>
+        <file>cardsImages/deck1/11_1.png</file>
+        <file>cardsImages/deck1/10_4.png</file>
+        <file>cardsImages/deck1/10_3.png</file>
+        <file>cardsImages/deck1/10_2.png</file>
+        <file>cardsImages/deck1/10_1.png</file>
+    </qresource>
+</RCC>

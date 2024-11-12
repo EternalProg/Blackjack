@@ -3,7 +3,7 @@
 
 #include <player.h>
 
-class Human : private Player
+class Human : public Player
 {
 public:
     Human(int initialBalance);
@@ -15,14 +15,13 @@ public:
 
     int getBet() const;
 
-    // Скидання ставки (на новий раунд)
     void resetBet();
 
-    // Додавання або віднімання грошей в залежності від результату гри
     void updateBalance(int amount);
 private:
     int balance;
-    int bet;
+    static constexpr int minBet = 10;
+    int bet = minBet;
 };
 
 #endif // HUMAN_H

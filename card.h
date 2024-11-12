@@ -1,61 +1,54 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include <ostream>
-#include <string>
+#include <QString>
 
-constexpr size_t getCardScore(const Card &card)
+struct CardSkins
 {
-    if (card.getN)
-        switch (card.getRank()) {
-        case Card::Rank::Two:
-            return 2;
-        case Card::Rank::Three:
-            return 3;
-        case Card::Rank::Four:
-            return 4;
-        case Card::Rank::Five:
-            return 5;
-        case Card::Rank::Six:
-            return 6;
-        case Card::Rank::Seven:
-            return 7;
-        case Card::Rank::Eight:
-            return 8;
-        case Card::Rank::Nine:
-            return 9;
-        case Card::Rank::Ten:
-            return 10;
-        case Card::Rank::Jack:
-            return 10;
-        case Card::Rank::Queen:
-            return 10;
-        case Card::Rank::King:
-            return 10;
-        default:
-            return 0;
-        }
-}
+    QString frontSkin;
+    QString backSkin;
+};
 
 class Card
 {
 public:
-    enum class Rank { Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace };
-    enum class Suit { Hearts, Diamonds, Clubs, Spades };
+    enum class Rank {
+        Ace = 1,
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King
+    };
+    enum class Suit { Clubs = 1, Spades, Diamonds, Hearts };
 
     Card(Rank rank, Suit suit);
+    Card();
 
-    std::string getName() const;
+    Rank getRank() const;
+    Suit getSuit() const;
 
-    Rank getRank() { return rank; }
-    Suit getSuit() { return suit; }
+    QString getFrontSkin() const;
+    QString getBackSkin() const;
 
-    friend std::ostream &operator<<(std::ostream &out, const Card &card);
+    void setSkin(const QString &front, const QString &back);
+    bool getIsFront() const;
+    void setIsFront(bool isFront) const;
 
-    // Тут буде метод для зміни скіна згодом
 private:
     Rank rank;
     Suit suit;
+    mutable bool isFront = true;
+    CardSkins cardSkin;
 };
+
+size_t getCardScore(const Card &card);
 
 #endif // CARD_H

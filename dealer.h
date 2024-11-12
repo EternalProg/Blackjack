@@ -1,24 +1,21 @@
 #ifndef DEALER_H
 #define DEALER_H
 
-#include <player.h>
 #include <card.h>
+#include <player.h>
 
 class Dealer : public Player
 {
 public:
     Dealer();
 
-    // Метод для автоматичної гри дилера (логіка добору карт)
-    void playTurn();
-
     bool shouldStand() const;
-
-    // Повертає одну карту дилера, яка буде схована
-    const Card& getHiddenCard() const;
+    size_t getHiddenCardScore();
+    void setHasHiddenCard(bool flag);
+    bool hasHiddenCard() const;
 
 private:
-    bool hasHiddenCard;
+    bool hasHiddenCard_ = true;
 };
 
 #endif // DEALER_H
